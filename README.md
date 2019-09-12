@@ -5,6 +5,7 @@
 - [Backend](http://taskmaster1-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks)
 - Challenge by: Codefellows
 - Author: Jack Daniel Kinne
+- ![screenshot](screen.png)
 
 ## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

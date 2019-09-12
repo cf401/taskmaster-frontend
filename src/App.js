@@ -34,6 +34,8 @@ function App() {
 
   return (
     <div className="app">
+    <Nav />
+    <h1>TaskMaster: Lab 28</h1>
       <ul>
         {tasks.map( (task,idx) => {
           return (
@@ -50,6 +52,16 @@ function App() {
       </ul>
     </div>
   );
+}
+
+function Nav(props) {
+  return (
+    <nav>
+    <ul>
+      <li><a href="https://github.com/cf401/taskmaster-frontend">GitHub</a></li>
+    </ul>
+    </nav>
+  )
 }
 
 function History(props) {
