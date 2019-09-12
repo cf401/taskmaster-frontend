@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import './App.css';
 
-const API = 'http://taskmaster1-dev.us-west-2.elasticbeanstalk.com/';
+const API = 'http://taskmaster1-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks';
 
 // On Load - Get that data from the API
 // Iterate and display major task points
