@@ -15,14 +15,18 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   function _getTasks() {
-    fetch(API)
+    fetch(API, {
+      mode: 'cors'
+    })
       .then( data => data.json() )
       .then( fetchedTasks => setTasks(fetchedTasks) );
   }
 
   function _deleteTask(id) {
-    fetch()
-     .method()
+    fetch(API, {
+      method: 'DELETE',
+      mode: 'cors'
+    })
      .then()
   }
 
@@ -38,7 +42,7 @@ function App() {
                 <summary>
                   <span onClick={_deleteTask}>{task.title}</span>
                 </summary>
-                <History history={task.history} />
+                <History history={task.historyList} />
               </details>
             </li>
           )
@@ -54,7 +58,7 @@ function History(props) {
       {props.history.map( (record,idx) => {
         return (
           <li key={idx}>
-            <span>{record.timestamp}</span>
+            <span>{record.date}</span>
             <span>{record.action}</span>
           </li>
         )
