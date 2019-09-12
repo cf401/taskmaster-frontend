@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description:
+- this frontend hosts a link to the backend taskmaster.
+- Here you can see what tasks have been created.  
+- [Frontend](http://taskmaster-frontend-jack.s3-website-us-west-2.amazonaws.com/)
+- [Backend](http://taskmaster1-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks)
+- Challenge by: Codefellows
+- Author: Jack Daniel Kinne
+
+## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -66,3 +74,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## credit and Contributions
+- Marisha Hoza
+- Brandon Hurrington
+- Kevin Couture
