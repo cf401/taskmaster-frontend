@@ -81,9 +81,7 @@ function History(props) {
 }
 
 let form = new FormData();
-
 const APIPIC = 'http://taskmaster1-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks/images';
-
 
 function _handleChange(event) {
   let value = event.target.files ? event.target.files[0] : event.target.value;
@@ -107,12 +105,12 @@ function Forming(props){
     <div>
       <form onSubmit={_upload} action={API} method="post" encType="multipart/form-data">
         <label>
-          <input onChange={_handleChange} name="name" placeholder="name" />
+          <input onChange={_handleChange} name="title" type="text" placeholder="title" />
         </label>
         <label>
-          <div>Are You Old?</div>
-          <input onChange={_handleChange} name="old" type="radio" value="true" /><span>Yes</span>
-          <input onChange={_handleChange} name="old" type="radio" value="false" /><span>No</span>
+          <div>Create new Task</div>
+          <input onChange={_handleChange} name="description" type="text"/>
+          <input onChange={_handleChange} name="assignee" type="text" />
         </label>
         <label>
           <span>Upload Image</span>
