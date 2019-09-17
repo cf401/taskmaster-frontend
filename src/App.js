@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import './App.css';
 
-const API = 'http://taskmaster1-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks';
+const API = 'http://taskmaster-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks';
 
 // On Load - Get that data from the API
 // Iterate and display major task points
@@ -81,7 +81,7 @@ function History(props) {
 }
 
 let form = new FormData();
-const APIPIC = 'http://taskmaster1-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks/images';
+const APIPIC = 'http://taskmaster-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks/images';
 const LOCAL = 'http://localhost:5000/api1/v2/tasks/images';
 
 
