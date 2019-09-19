@@ -111,11 +111,15 @@ function Forming(props){
     <div>
       <form onSubmit={_upload} method="post" encType="multipart/form-data">
         <label>
+        <div>Title</div>
           <input onChange={_handleChange} name="title" type="text" placeholder="title" />
         </label>
         <label>
-          <div>Create new Task</div>
+          <div>Description</div>
           <input onChange={_handleChange} name="description" type="text"/>
+        </label>
+        <label>
+        <div>Assignee</div>
           <input onChange={_handleChange} name="assignee" type="text" />
         </label>
         <label>
