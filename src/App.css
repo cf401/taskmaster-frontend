@@ -26,3 +26,7 @@ img {
 form {
   display: flex;
 }
+
+a {
+  color: white;
+}

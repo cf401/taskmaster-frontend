@@ -2,23 +2,24 @@ import React, {useState, useEffect} from 'react';
 
 import './App.css';
 
-//api for backend beanstalk
-const API = 'http://taskmaster-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks';
-//api for api gateway
+let form = new FormData();
 
-
-// On Load - Get that data from the API
-// Iterate and display major task points
-// Some Interaction to expose history
-
-// TODO : Add a link to delete or change status
+  //api for backend beanstalk
+  const API = 'http://taskmaster-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks';
+  //api for api gateway
+  const APIGET = 'https://09i76htrtf.execute-api.us-west-2.amazonaws.com/dev/tasks';
+  const APIGETSLASH = 'https://09i76htrtf.execute-api.us-west-2.amazonaws.com/dev/tasks/';
+  // beanstalk image
+  const APIPIC = 'http://taskmaster-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks/images';
+  //local testing only
+  const LOCAL = 'http://localhost:5000/api1/v2/tasks/images';
 
 function App() {
 
   const [tasks, setTasks] = useState([]);
 
   function _getTasks() {
-    fetch(API, {
+    fetch(APIGET, {
       mode: 'cors'
     })
       .then( data => data.json() )
@@ -30,7 +31,7 @@ function App() {
       method: 'DELETE',
       mode: 'cors'
     })
-     .then()
+    .then()
   }
 
   useEffect( _getTasks, [] );
@@ -43,10 +44,11 @@ function App() {
         {tasks.map( (task,idx) => {
           return (
             <li key={task.id}>
+
               <details>
                 <summary>
                   <span onClick={_deleteTask}>Title: {task.title}</span>
-                  <div>Assignee: {task.assignee}</div>
+                  <div><a href={APIGETSLASH + task.assignee}>Assignee: {task.assignee} </a></div>
                   <div>Description: {task.description}</div>
                 </summary>
                 <History history={task.historyList} />
@@ -87,33 +89,36 @@ function History(props) {
   )
 }
 
-let form = new FormData();
-const APIPIC = 'http://taskmaster-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks/images';
-const LOCAL = 'http://localhost:5000/api1/v2/tasks/images';
-
-
+//this function handles forms with a post form method
 function Forming(props){
+
+  const [formData, setFormData] = useState({});
+
   function _handleChange(event) {
-    let value = event.target.files ? event.target.files[0] : event.target.value;
-    form.set(event.target.name, value);
-  }
-  function _upload(event) {
-    event.preventDefault();
-    fetch(APIPIC, {
-      method: "POST",
-      body: form,
-    })
-    .then(response => {console.log(response); return response.json()})
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
-  }
+    // For the JSON version of the form
+  setFormData( {...formData, [event.target.name]:event.target.value});
+}
+
+function _handleSubmit(event) {
+  event.preventDefault();
+  fetch(`${APIGET}`, {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'},
+    mode: 'cors',
+    body: JSON.stringify(formData),
+  })
+  .then(response => response.json())
+  .catch(error => console.error('Error:', error))
+  .then(response => console.log('Success:', response));
+}
+
   return (
     <div>
-      <form onSubmit={_upload} method="post" encType="multipart/form-data">
+      <form onSubmit={_handleSubmit}>
         <label>
         <div>Title</div>
           <input onChange={_handleChange} name="title" type="text" placeholder="title" />
-        </label>
+        </label>  
         <label>
           <div>Description</div>
           <input onChange={_handleChange} name="description" type="text"/>
@@ -131,6 +136,5 @@ function Forming(props){
     </div>
   );
 }
-
 
 export default App;
