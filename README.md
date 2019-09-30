@@ -23,10 +23,17 @@ Instead of just logging that activity …
 - [Backend](http://taskmaster1-dev.us-west-2.elasticbeanstalk.com/api1/v2/tasks)
 - Challenge by: Codefellows
 - Author: Jack Daniel Kinne
-- ![screenshot](screen.png)
+![screenshot](screen.png)
 
 ## Screenshots
-- ![screenshot](screen.png)
+- API Gateway Posting route
+![screenshot](api-post.png)
+- Frontend Successful subscription
+![screenshot](frontend-sub.png)
+- SNS backend subscription
+![screenshot](frontend-sub.png)
+- Successful backend subscription test
+![screenshot](sns-subscribe.png)
 
 ## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
