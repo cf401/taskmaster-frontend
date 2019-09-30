@@ -30,8 +30,6 @@ Instead of just logging that activity …
 ![screenshot](api-post.png)
 - Frontend Successful subscription
 ![screenshot](frontend-sub.png)
-- SNS backend subscription
-![screenshot](frontend-sub.png)
 - Successful backend subscription test
 ![screenshot](sns-subscribe.png)
 
