@@ -42,12 +42,11 @@ function App() {
     <div className="app">
     <Nav />
     <h1>TaskMaster: Lab 28</h1>
-    {/* todo: add subscribe here */}
+    <Subscribe />
       <ul>
         {tasks.map( (task,idx) => {
           return (
             <li key={task.id}>
-              <Subscribe />
               <details>
                 <summary>
                   <span onClick={_deleteTask}>Title: {task.title}</span>
@@ -152,7 +151,7 @@ function Subscribe(props){
 
 function _handleSubmit(event) {
   event.preventDefault();
-  fetch(`${APIGET}`, {
+  fetch(`${APIGETSUB}`, {
     method: "POST",
     headers: {'Content-Type': 'application/json'},
     mode: 'cors',
@@ -166,6 +165,7 @@ function _handleSubmit(event) {
   return (
     <div>
       <form onSubmit={_handleSubmit}>
+        <h2>Subscribe to TaskMaster</h2>
         <label>
         <div>Phone Number</div>
           <input onChange={_handleChange} name="phoneNumber" type="text" placeholder="phoneNumber" />
